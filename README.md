@@ -1,4 +1,4 @@
-﻿# ADM-MANAGER-ULTIMATE
+﻿# ADM-MANAGER-MOD
 
 Manager Script
 

